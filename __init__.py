@@ -1,1 +1,1 @@
-from blizzard import *
+from .blizzard import *
