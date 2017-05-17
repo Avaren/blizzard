@@ -18,6 +18,25 @@ class EndPoint(Enum):
     WOW_CHAR = WOW + '/character/{realm}/{name}'
 
 
+WOW_RACES = {
+    1: {'side': 'alliance', 'name': 'Human'}, 2: {'side': 'horde', 'name': 'Orc'},
+    3: {'side': 'alliance', 'name': 'Dwarf'}, 4: {'side': 'alliance', 'name': 'Night Elf'},
+    5: {'side': 'horde', 'name': 'Undead'}, 6: {'side': 'horde', 'name': 'Tauren'},
+    7: {'side': 'alliance', 'name': 'Gnome'}, 8: {'side': 'horde', 'name': 'Troll'},
+    9: {'side': 'horde', 'name': 'Goblin'}, 10: {'side': 'horde', 'name': 'Blood Elf'},
+    11: {'side': 'alliance', 'name': 'Draenei'}, 22: {'side': 'alliance', 'name': 'Worgen'},
+    24: {'side': 'neutral', 'name': 'Pandaren'}, 25: {'side': 'alliance', 'name': 'Pandaren'},
+    26: {'side': 'horde', 'name': 'Pandaren'}}
+
+WOW_CLASSES = {
+    1: {'powerType': 'rage', 'name': 'Warrior'}, 2: {'powerType': 'mana', 'name': 'Paladin'},
+    3: {'powerType': 'focus', 'name': 'Hunter'}, 4: {'powerType': 'energy', 'name': 'Rogue'},
+    5: {'powerType': 'mana', 'name': 'Priest'}, 6: {'powerType': 'runic-power', 'name': 'Death Knight'},
+    7: {'powerType': 'mana', 'name': 'Shaman'}, 8: {'powerType': 'mana', 'name': 'Mage'},
+    9: {'powerType': 'mana', 'name': 'Warlock'}, 10: {'powerType': 'energy', 'name': 'Monk'},
+    11: {'powerType': 'mana', 'name': 'Druid'}, 12: {'powerType': 'fury', 'name': 'Demon Hunter'}}
+
+
 class BlizzardAPI:
     def __init__(self, key, loop=None, sess=None):
         self.key = key
