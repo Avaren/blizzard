@@ -16,6 +16,7 @@ class EndPoint(Enum):
     WOW = API_BASE + '/wow'
     WOW_REALM = WOW + '/realm/status'
     WOW_CHAR = WOW + '/character/{realm}/{name}'
+    WOW_CHARS = WOW + '/user/characters?access_token={token}'
 
 
 WOW_RACES = {
@@ -63,6 +64,10 @@ class BlizzardAPI:
             if char.get('status') != 'nok':
                 chars[r] = char
         return chars
+
+    async def characters(self, token: str, region: Region):
+        chars = await self._do_req(EndPoint.WOW_CHARS, {'token': token, 'region': region.name.lower()})
+        return chars['characters']
 
     async def _do_req(self, endpoint: EndPoint, url_params: dict):
         url = endpoint.value.format(**url_params)
